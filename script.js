@@ -136,20 +136,20 @@ console.log(arr);
  //   console.log(i);
 
 
- let arr = ['aaww','weee','zzz','ppp'],
+ //let arr = ['aaww','weee','zzz','ppp'],
 
 
- i = arr.sort(); // этот метод сортирует все по алфавиту если строки
+ //i = arr.sort(); // этот метод сортирует все по алфавиту если строки
 
 
-  //let arr = [1,15,4],
+  //let arr = [2,15,4],
 /* i = arr.sort(compareNum) // сортирует цифры
  function compareNum(a,b) {
     return a-b;
  }
   */
 
-  console.log(arr);
+  //console.log(arr);
 
 
 
@@ -170,5 +170,120 @@ console.log(arr);
 
   john.__proto__ = soldier;
   console.log(john);
-  console.log(john.armor);
+  console.log(john.armor)
 
+
+  // Отлавливаем ошибки в своем коде при помощи консоли разработчика. Breakpoints
+
+  function hello() {
+      console.log("Hello world!");
+  }
+
+  hello();
+
+  
+  function hi() {
+      console.log("Hello world!");
+  }
+
+  hi();
+
+  let arr = [1, 15, 4, 30, 42];
+  arr.sort(compareNum);
+
+      function compareNum(a,b) {
+          console.log('a = ', a)
+          console.log('b = ', b)
+          return a - b;
+      } 
+      console.log(arr);
+
+    
+
+
+// Динамическая типизация в JS
+
+// - to String
+
+// 1)
+console.log(typeof(String(null)));
+
+// 2)
+console.log("ww" + "err"); // конкатенация в строку
+
+console.log('https://vk.com/catalog/' + 5);
+
+// - to Number
+
+// 1)
+
+console.log(typeof(Number('5')));
+
+// 2)
+
+console.log(typeof((+'5')));
+console.log(typeof((5 + +'5')));
+
+// 3)
+
+console.log(typeof(parseInt('15px',10)));
+
+// let ans = +prompt("Hello",'');
+
+// 0, '', null, undefined, NaN - false , не зайдет в условия программы, код не выполнится !!!
+
+
+let switcher = null;
+
+if (switcher) {
+console.log("Working...");
+}
+
+switcher = 1;
+
+if (switcher) {
+    console.log("Working...");
+}
+
+
+
+// События и их обработчики
+
+let btn = document.querySelectorAll('button');
+link = document.querySelector('a');
+
+// btn[0].onclick = function() {
+// alert('Вы нажали на первую кнопку');
+// });
+
+// //Перезаписывается обработчик на новый !!
+
+// btn[0].onclick = function() {
+// alert('Вы опять нажали на первую кнопку');
+// })
+
+
+
+// btn[0].addEventListener('click', function(event) {
+//     console.log(event);
+//    let target = event.target;
+//     target.style.display = 'none';
+// //  console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);
+// });
+
+
+
+// btn[0].addEventListener('mouseenter',function() {
+//   alert('Вы навели на первую кнопку');
+// });
+
+link.addEventListener('click',function(event) {
+    event.preventDefault(); // отменили переход по ссылке
+    console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);
+});
+
+btn.forEach(function(item) {
+ item.addEventListener('mouseleave',function(){
+console.log('Вышли!');
+ });
+});
